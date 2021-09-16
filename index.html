@@ -5,6 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
         <title>liff-beta</title>
         <script src="https://line-objects-internal.com/assets/liff/edge/2/sdk.js"></script>
+        <script type="module" src="https://line-objects-internal.com/assets/lui/edge/versions/1.0.0/luivendor.js"></script>
+        <script type="module" src="https://line-objects-internal.com/assets/lui/edge/versions/1.0.0/lui-navigation-back.js"></script>
+        <script type="module" src="https://line-objects-internal.com/assets/lui/edge/versions/1.0.0/lui-navigation-bar.js"></script>
         <script type="text/javascript">
             /**
             * Initialize LIFF
@@ -79,12 +82,23 @@
             });
             
         </script>
-        
+        <style>
+            lui-navigation-bar-spacer,
+            lui-navigation-bar {
+                --lui-navigation-bar-height: 44px;
+            }
+        </style>
         
     </head>
     
     <body>
-                <h3>環境やトークルームの情報を取得222</h3>
+        <div>
+            <lui-navigation-bar-spacer menu-style="darkTranslucent" platform="auto"></lui-navigation-bar-spacer>
+            <lui-navigation-bar menu-style="darkTranslucent" platform="auto">
+                <lui-navigation-back slot="left"></lui-navigation-back>
+                <h3>LUI LOLOLOLOLOLO</h3>
+            </lui-navigation-bar>
+        </div>
                 <input type="button" id="add_to_home" value="add_to_home"/>
                 <input type="button" id="go" value="実行"/>
                 <input type="button" id="popup" value="popup"/>
