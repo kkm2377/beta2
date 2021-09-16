@@ -88,19 +88,18 @@
     </head>
     
     <body>
-        <style>
-            lui-navigation-bar-spacer,
-            lui-navigation-bar {
-                --lui-navigation-bar-height: 44px;
-            }
-        </style>
-        
-        <div>
-        <lui-navigation-bar-spacer menu-style="darkTranslucent" platform="auto"></lui-navigation-bar-spacer>
-        <lui-navigation-bar title="LUI test2" flatform="auto">
-                <h1 slot="center">very long titleeeeeeeeeeeeee</h1>
-        </lui-navigation-bar>
-        
-        </div>
+<style>
+  lui-navigation-bar-spacer,
+  lui-navigation-bar {
+    --lui-navigation-bar-height: 44px;
+  }
+</style>
+<div>
+  <lui-navigation-bar-spacer menu-style="darkTranslucent" platform="auto"></lui-navigation-bar-spacer>
+  <lui-navigation-bar menu-style="darkTranslucent" platform="auto">
+    <lui-navigation-back slot="left"></lui-navigation-back>
+    <h1 slot="center">very long titleeeeeeeeeeeeee</h1>
+  </lui-navigation-bar>
+</div>
     </body>
 </html>
