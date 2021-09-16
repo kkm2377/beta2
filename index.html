@@ -54,12 +54,20 @@
             });
             
         </script>
-
+#app-header {
+    display: block;
+    width: 100%;
+    height: calc(env(safe-area-inset-top,0px) + var(--android-safe-area-inset-top, 0px));
+    background: lightgreen;
+}
         
     </head>
     
     <body>
-
+                <div id="app-header"></div>
+                <h1><div class="info-button">?</div>
+                    LIFF sample app
+                </h1>
                 <input type="button" id="add_to_home" value="add_to_home"/>
                 <input type="button" id="go" value="実行"/>
                 <input type="button" id="popup" value="popup"/>
