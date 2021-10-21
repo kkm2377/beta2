@@ -1,112 +1,18 @@
-<!DOCTYPE html>
-<html lang="jp" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-        <title>liff-beta</title>
-        <script src="https://line-objects-internal.com/assets/liff/edge/2/sdk.js"></script>
-        <script type="text/javascript">
-            /**
-            * Initialize LIFF
-            * @param {string} myLiffId The LIFF app ID of the selected element
-            */
-            document.addEventListener("DOMContentLoaded", () => {
-                liff
-                    .init({
-                        liffId: "1651833066-Bk0XW1Ng"
-                    })
-                    .then(() => {
-                        document.getElementById('go').addEventListener('click', () => {
-                            document.getElementById('log').value =
-                              '○言語設定\n' +
-                              'liff.getLanguage()=' + liff.getLanguage() + '\n' +
-                              '○LIFF SDKのバージョン\n' +
-                              'liff.getVersion()=' + liff.getVersion() + '\n' +
-                              '○LIFF LINEのバージョン\n' +
-                              'liff.getLineVersion()=' + liff.getLineVersion() + '\n' +
-                              '○LINE内ブラウザで動作させているかどうか\n' +
-                              'liff.isInClient()=' + liff.isInClient() + '\n' +
-                              '○ログインしているかどうか\n' +
-                              'liff.isLoggedIn()=' + liff.isLoggedIn() + '\n' +
-                              '○OS\n' +
-                              'liff.getOS()=' + liff.getOS() + '\n' +
-                              '○アクセストークン\n' +
-                              'liff.getAccessToken()=' + liff.getAccessToken() + '\n' +
-                              '○Get ID Token\n' +
-                              'liff.getIDToken()=' + liff.getIDToken() + '\n' +
-                              '○画面（1対1のチャット、グループ、またはトークルーム）を一意に識別する値\n' +
-                              'liff.getContext()=' + JSON.stringify(liff.getContext()) + '\n' +
-                              '○ユーザー名等\n' +
-                              'liff.getDecodedIDToken()=' + JSON.stringify(liff.getDecodedIDToken()) + '\n\n\n' +
-                              '○ ユーザーのプロフィール\n' +
-                              'liff.getProfile()=' + JSON.stringify(liff.getProfile()) + '\n' +
-                              '○ Create URL\n' +
-                              'liff.permanentLink.createUrl()=' + liff.permanentLink.createUrl() + '\n' +
-                              '○ ProfilePlus\n' +
-                              'liff.getProfilePlus()=' + JSON.stringify(liff.getProfilePlus()) + '\n' ;
-                        });
-                        document.getElementById('popup').addEventListener('click', () => {
-                            liff.openWindow({
-                                url: "https://liff.line-beta.me/1651833066-zO3vlq60",
-                                external: true
-                            });
-                        });
-                        document.getElementById('addtohome').addEventListener('click', () => {
-                            liff.addToHomeScreen({
-                                name: "LINE",
-                                iconUrl: "https://obs-beta.line-scdn.net/0hi2dU1wubNh1ZLCCnLGVJSntxPX9qTigWexgyezx-HU0oSQRLLjEmH3RQDVY_TwQ3LjUyJidHHkkyYAMgZiscAyB8DSw8dDc/f256x256",
-                                state: "/search?q=foo"
-                            });
-                        });
-                    document.getElementById('subwindow').addEventListener('click', () => {
-                        liff.subWindow.open({
-                            url: 'https://liff.line.me/1651833066-zO3vlq60/index.html',
-                            appData: { // Can pass object to the LIFF app opened in the sub window.
-                                infoA: 'sampleA',
-                                infoB: 100
-                            },
-                            native: {
-                                height: 'full',
-                                closeButtonPosition: 'right',
-                                closeButtonColor: 'black'
-                            }
-                        })
-                            .catch((error) => {
-                            console.error(error);
-                            // some error happened when opening the sub window
-                        })
-                            .then(() => {
-                            // the sub window opened successfully
-                        });
-                    });
-                });
-            });
-            
-        </script>
-    </head>
-    <body>
-        <style type="text/css">
-            #app-header {
-                display: block;
-                width: 100%;
-                height: calc(env(safe-area-inset-top,0px) + var(--android-safe-area-inset-top, 0px));
-                background: lightgreen;
-            }
-        </style>
-        <div id="app-header"></div>
-        <h1><div class="info-button"></div>
-            LIFF sample app
-        </h1>
-        <input type="button" id="addtohome" value="add_to_home"/>
-        <input type="button" id="go" value="実行"/>
-        <input type="button" id="popup" value="popup"/>
-        <input type="button" id="pic" value="pic"/>
-        <input type="button" id="flex" value="flex"/>
-        <input type="button" id="qrcode" value="QRcode"/>
-        <input type="button" id="subwindow" value="subwindow"/>
-        <a href="https://www.naver.com">naver</a>
-        <a href="https://android-liff-test.herokuapp.com/index.html" target="_blank">IAB</a>
-        <textarea id="log" style="width:96%;height:350px;"></textarea> -->
-        
-    </body>
+<html lang="en">
+  <head>
+    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  </head>
+  <body>
+      <h1 id="a"></h1>
+    <script type="text/javascript">
+        liff.init({ liffId: '1651833066-Bk0XW1Ng' });
+       
+        const a = window.localStorage.getItem('a');  // 1回目はnull
+       
+        const el = document.getElementById("a");  // 取得した値を画面へ出力
+        el.innerHTML = a;
+       
+        window.localStorage.setItem('a', 'XXXXX');  // localStorageに保存
+    </script>
+  </body>
 </html>
