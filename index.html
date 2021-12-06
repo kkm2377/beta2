@@ -74,10 +74,14 @@
                         });
 			
 			
-			document.getElementById('popup').addEventListener('click', () => {
-                             liff.subWindow.open({url: "https://liff.line-beta.me/1651833066-Bk0XW1Ng/beta" })
-
-
+			document.getElementById('subwindow').addEventListener('click', () => {
+//                              liff.subWindow.open({url: "https://liff.line-beta.me/1651833066-Bk0XW1Ng/beta" })
+			     liff.subWindow.open({
+  				url: "https://liff.line-beta.me/1651833066-Bk0XW1Ng/beta",
+  				native: {
+    					height: "compact"
+  					}
+			     })
                         });
                     
                    
@@ -133,6 +137,7 @@
                 <input type="button" id="add_to_home" value="add_to_home"/>
                 <input type="button" id="go" value="実行"/>
                 <input type="button" id="popup" value="popup"/>
+	    	<input type="button" id="subwindow" value="subwindow"/>
                 <input type="button" id="pic" value="pic"/>
                 <input type="button" id="flex" value="flex"/>
                 <input type="button" id="qrcode" value="QRcode"/>
