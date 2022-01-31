@@ -1,3 +1,3 @@
 <?
-    header('Location: /kim.html');
+    header('Location: /index.html');
 ?>
