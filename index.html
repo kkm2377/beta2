@@ -92,6 +92,13 @@
 			     })
                         });
                     
+			
+			document.getElementById('windowopen').addEventListener('click', () => {
+//                              liff.subWindow.open({url: "https://liff.line-beta.me/1651833066-Bk0XW1Ng/beta" })
+			     window.open("https://www.w3schools.com", "_blank");
+			     })
+                        });
+			
                    
                     
                         document.getElementById('qrcode').addEventListener('click', () => {
@@ -148,6 +155,7 @@
 	    	<input type="button" id="subwindow" value="subwindow"/>
                 <input type="button" id="pic" value="pic"/>
                 <input type="button" id="flex" value="flex"/>
+	    <input type="button" id="windowopen" value="windowopen"/>
                 <input type="button" id="qrcode" value="QRcode"/>
 	    <video height="300" width="100" src="./pin_to_home_tab.mp4" playsinline muted autoplay></video>
 <!-- 	     <video height="300" width="100" src="./pin_to_home_tab.mp4" playsinline></video> -->
@@ -157,6 +165,7 @@
 <!--                 <a href="https://www.naver.com">naver</a> -->
                 <a href="https://liff.line-beta.me/1651833066-zO3vlq60" target="_blank" style="color:white;">LIFF-to-LIFF</a>
                 <a href="https://android-liff-test.herokuapp.com/index.html" target="_blank">IAB</a>
+	    　　　　　　window.open("https://liff.line-beta.me/1651833066-zO3vlq60", name, specs, replace);
                 <textarea id="log" style="width:96%;height:350px;"></textarea>
 	    	<label>Height</label>
 	    	<input type="text" id="height">
