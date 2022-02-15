@@ -37,12 +37,18 @@
             * Initialize LIFF
             * @param {string} myLiffId The LIFF app ID of the selected element
             */
-            document.addEventListener("DOMContentLoaded", () => {
-                liff
+             async document.addEventListener("DOMContentLoaded", () => {
+                await liff
                     .init({
-                        liffId: "1651833066-Bk0XW1Ng",
-                        withLoginOnExternalBrowser: true, // Enable automatic login process
-                    })
+                        liffId: "1651833066-Bk0XW1Ng"})
+			
+			if (!liff.isLoggedIn()) {
+			liff.login({ redirectUri: window.location.href });
+		     return false;
+	     		}
+		     
+                        //withLoginOnExternalBrowser: true, // Enable automatic login process
+                    
                     .then(() => {
 //                         const string = document.referrer;
 //                         alert(string);
