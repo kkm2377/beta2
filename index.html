@@ -41,13 +41,7 @@
 		     liff
 			.init({
                         liffId: "1651833066-Bk0XW1Ng",
-			
-// 			if (!liff.isLoggedIn()) {
-// 			liff.login({ redirectUri: window.location.href });
-// 		     return false;
-// 	     		}
-		     
-                        withLoginOnExternalBrowser: true, // Enable automatic login process
+                        withLoginOnExternalBrowser: true // Enable automatic login process
                     })
                     .then(() => {
 //                         const string = document.referrer;
@@ -79,6 +73,7 @@
                               '○ Create URL\n' +
                               'liff.permanentLink.createUrl()=' + liff.permanentLink.createUrl() + '\n' ;
                         });
+			     
                         document.getElementById('popup').addEventListener('click', () => {
 //                             liff.openWindow({
 //                                 url: "https://liff.line-beta.me/1655828362-KLxYgqxg",
