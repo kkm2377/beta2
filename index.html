@@ -74,24 +74,24 @@
                               'liff.permanentLink.createUrl()=' + liff.permanentLink.createUrl() + '\n' ;
                         });
 			     
-                        document.getElementById('popup').addEventListener('click', () => {
-//                             liff.openWindow({
-//                                 url: "https://liff.line-beta.me/1655828362-KLxYgqxg",
-//                                 external: true
-//                             });
-				window.confirm("Press Button Please")
-                        });
+//                         document.getElementById('popup').addEventListener('click', () => {
+// //                             liff.openWindow({
+// //                                 url: "https://liff.line-beta.me/1655828362-KLxYgqxg",
+// //                                 external: true
+// //                             });
+// 				window.confirm("Press Button Please")
+//                         });
 			
 			
-			document.getElementById('subwindow').addEventListener('click', () => {
-                             liff.subWindow.open({url: "https://liff.line-beta.me/1651833066-Bk0XW1Ng/beta" })
-// 			     liff.subWindow.open({
-//   				url: "https://liff.line-beta.me/1651833066-Bk0XW1Ng/beta/index.html",
-//   				native: {
-//     					height: "Full"
-//   					}
-// 			     })
-                        });
+// 			document.getElementById('subwindow').addEventListener('click', () => {
+//                              liff.subWindow.open({url: "https://liff.line-beta.me/1651833066-Bk0XW1Ng/beta" })
+// // 			     liff.subWindow.open({
+// //   				url: "https://liff.line-beta.me/1651833066-Bk0XW1Ng/beta/index.html",
+// //   				native: {
+// //     					height: "Full"
+// //   					}
+// // 			     })
+//                         });
                     
 			
 			document.getElementById('windowopen').addEventListener('click', () => {
@@ -145,23 +145,23 @@
 				
 				
 				
-			document.getElementById('add_to_home').addEventListener('click', () => {				
-				if (liff.isApiAvailable('addToHomeScreen')) {
-				    liff.addToHomeScreen({
-					name: "LINE",
-					iconUrl: "https://obs.line-apps.com/icon.png",
-					state: "/search?q=foo"
-				    }).then((status) => {
-					// status == -1:  // canceled. If user cancel to add, return -1 (only Android under 8)
-					// status == 0:   // unknown. iOS always return 0
-					// status == 1:   // added. If shortcut created, return 1 (Android above 8 will always be 1)
-				    }).catch(function(res) {
-				      console.log("Failed to launch addToHomeScreen")
-				    })
-				}else {
-				      console.log("isApiAvailable Error")
-				}
-			});
+// 			document.getElementById('add_to_home').addEventListener('click', () => {				
+// 				if (liff.isApiAvailable('addToHomeScreen')) {
+// 				    liff.addToHomeScreen({
+// 					name: "LINE",
+// 					iconUrl: "https://obs.line-apps.com/icon.png",
+// 					state: "/search?q=foo"
+// 				    }).then((status) => {
+// 					// status == -1:  // canceled. If user cancel to add, return -1 (only Android under 8)
+// 					// status == 0:   // unknown. iOS always return 0
+// 					// status == 1:   // added. If shortcut created, return 1 (Android above 8 will always be 1)
+// 				    }).catch(function(res) {
+// 				      console.log("Failed to launch addToHomeScreen")
+// 				    })
+// 				}else {
+// 				      console.log("isApiAvailable Error")
+// 				}
+// 			});
                 })
             });
             
