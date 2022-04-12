@@ -94,39 +94,39 @@
 //                         });
                     
 			
-			document.getElementById('windowopen').addEventListener('click', () => {
-//                              liff.subWindow.open({url: "https://liff.line-beta.me/1651833066-Bk0XW1Ng/beta" })
-			     window.open("https://www.w3schools.com", "_blank")
-			     })
-                        });
+// 			document.getElementById('windowopen').addEventListener('click', () => {
+// //                              liff.subWindow.open({url: "https://liff.line-beta.me/1651833066-Bk0XW1Ng/beta" })
+// 			     window.open("https://www.w3schools.com", "_blank")
+// 			     })
+//                         });
 			
                    
                     
-                        document.getElementById('qrcode').addEventListener('click', () => {
-                            if (liff.scanCode) {
-                                liff.scanCode().then(result => {
-                                    result = { value: '' }
-                                });
-                            }
-                        });
+//                         document.getElementById('qrcode').addEventListener('click', () => {
+//                             if (liff.scanCode) {
+//                                 liff.scanCode().then(result => {
+//                                     result = { value: '' }
+//                                 });
+//                             }
+//                         });
                     
 			
-			document.getElementById('message').addEventListener('click', () => {
-				var height=document.getElementById("height").value;
+// 			document.getElementById('message').addEventListener('click', () => {
+// 				var height=document.getElementById("height").value;
 				
-				liff.sendMessages([
-					{
-						type: 'text',
-						text: 'your height is ' + height
-					}
-				])
-					.then(() => {
-					console.log('message sent');
-				})
-					.catch((err) => {
-					console.log('error', err);
-				});
-			});
+// 				liff.sendMessages([
+// 					{
+// 						type: 'text',
+// 						text: 'your height is ' + height
+// 					}
+// 				])
+// 					.then(() => {
+// 					console.log('message sent');
+// 				})
+// 					.catch((err) => {
+// 					console.log('error', err);
+// 				});
+// 			});
 
                    
 //                         document.getElementById('add_to_home').addEventListener('click', () => {
@@ -172,9 +172,9 @@
     
     <body>
                 <h3>環境やトークルームの情報を取得333</h3>
-                <input type="button" id="add_to_home" value="add_to_home"/>
+<!--                 <input type="button" id="add_to_home" value="add_to_home"/> -->
                 <input type="button" id="go" value="実行"/>
-                <input type="button" id="popup" value="popup"/>
+<!--                 <input type="button" id="popup" value="popup"/>
 	    	<input type="button" id="subwindow" value="subwindow"/>
                 <input type="button" id="pic" value="pic"/>
                 <input type="button" id="flex" value="flex"/>
@@ -183,12 +183,8 @@
 	    	        <input type="button" id="message" value="message"/>
                 <input type="button" value="リファラ表示" onclick="alert( document.referrer );" />
                 <a href="https://liff.line-beta.me/1651833066-zO3vlq60" target="_blank" style="color:white;">LIFF-to-LIFF</a>
-                <a href="https://android-liff-test.herokuapp.com/index.html" target="_blank">IAB</a>
+                <a href="https://android-liff-test.herokuapp.com/index.html" target="_blank">IAB</a> -->
 	        <a href="https://www.facebook.com/">facebook</a>
-                <textarea id="log" style="width:96%;height:350px;"></textarea>
-	    	<label>Height</label>
-	    	<input type="text" id="height">
-	    	<label>weight</label>
-	    	<input type="text" id="weight">
+               
     </body>
 </html>
