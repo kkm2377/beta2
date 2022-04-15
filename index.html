@@ -1,167 +1,124 @@
-<!-- <html lang="en">
-  <head>
-    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-  </head>
-  <body>
-      <h1 id="a"></h1>
-    <script type="text/javascript">
-        liff.init({ liffId: '1651833066-Bk0XW1Ng' });
-       
-        const a = window.localStorage.getItem('a');  // 1回目はnull
-       
-        const el = document.getElementById("a");  // 取得した値を画面へ出力
-        el.innerHTML = a;
-       
-        window.localStorage.setItem('a', 'XXXXX');  // localStorageに保存
-    </script>
-  </body>
-</html>
- -->
-
 <!DOCTYPE html>
-<html lang="jp" dir="ltr" style="background-color:blue;">
+<html lang="jp" dir="ltr">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    	<title>LIFF A</title>
-	    <style>
-		html {
-   			background-color:#00BD9C;
-		}
-	</style>
-	    
-	    <h1>LIFF A</h1>
-        <script src="https://line-objects-internal.com/assets/liff/edge/2/sdk.js"></script>
-        <script type="text/javascript">
+        <title>LIFF-BETA-Sample</title>
+<!-- 	    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.11.1/sdk.js"></script> -->
+        <script src="https://line-objects-internal.com/assets/liff/edge/2/sdk.js">
+	    <script defer type="text/javascript">
             /**
             * Initialize LIFF
             * @param {string} myLiffId The LIFF app ID of the selected element
             */
-             document.addEventListener("DOMContentLoaded", () => {
-		     liff
-			.init({
+            document.addEventListener("DOMContentLoaded", () => {
+                liff
+                    .init({
                         liffId: "1651833066-Bk0XW1Ng",
-                        withLoginOnExternalBrowser: true // Enable automatic login process
+                        withLoginOnExternalBrowser: true, // Enable automatic login process
                     })
                     .then(() => {
-//                         const string = document.referrer;
-//                         alert(string);
-                        document.getElementById('go').addEventListener('click', () => {
-                            document.getElementById('log').value =
-                              '○言語設定\n' +
-                              'liff.getLanguage()=' + liff.getLanguage() + '\n' +
-                              '○LIFF SDKのバージョン\n' +
-                              'liff.getVersion()=' + liff.getVersion() + '\n' +
-                              '○LIFF LINEのバージョン\n' +
-                              'liff.getLineVersion()=' + liff.getLineVersion() + '\n' +
-                              '○LINE内ブラウザで動作させているかどうか\n' +
-                              'liff.isInClient()=' + liff.isInClient() + '\n' +
-                              '○ログインしているかどうか\n' +
-                              'liff.isLoggedIn()=' + liff.isLoggedIn() + '\n' +
-                              '○OS\n' +
-                              'liff.getOS()=' + liff.getOS() + '\n' +
-                              '○アクセストークン\n' +
-                              'liff.getAccessToken()=' + liff.getAccessToken() + '\n' +
-                              '○Get ID Token\n' +
-                              'liff.getIDToken()=' + liff.getIDToken() + '\n' +
-                              '○画面（1対1のチャット、グループ、またはトークルーム）を一意に識別する値\n' +
-                              'liff.getContext()=' + JSON.stringify(liff.getContext()) + '\n' +
-                              '○ユーザー名等\n' +
-                              'liff.getDecodedIDToken()=' + JSON.stringify(liff.getDecodedIDToken()) + '\n\n\n' +
-                              '○ ユーザーのプロフィール\n' +
-                              'liff.getProfile()=' + JSON.stringify(liff.getProfile()) + '\n' +
-                              '○ Create URL\n' +
-                              'liff.permanentLink.createUrl()=' + liff.permanentLink.createUrl() + '\n' ;
+
+                        document.getElementById('qrcode').addEventListener('click', () => {
+                            liff.scanCodeV2().then(result => {
+			    })
                         });
-			     
-//                         document.getElementById('popup').addEventListener('click', () => {
-// //                             liff.openWindow({
-// //                                 url: "https://liff.line-beta.me/1655828362-KLxYgqxg",
-// //                                 external: true
-// //                             });
-// 				window.confirm("Press Button Please")
-//                         });
 			
-			
-// 			document.getElementById('subwindow').addEventListener('click', () => {
-//                              liff.subWindow.open({url: "https://liff.line-beta.me/1651833066-Bk0XW1Ng/beta" })
-// // 			     liff.subWindow.open({
-// //   				url: "https://liff.line-beta.me/1651833066-Bk0XW1Ng/beta/index.html",
-// //   				native: {
-// //     					height: "Full"
-// //   					}
-// // 			     })
-//                         });
+			     liff.getProfile()
+                            .then(function (profile) {
+                                document.getElementById('useridprofilefield').textContent = profile.userId;
+                                document.getElementById('displaynamefield').textContent = profile.displayName;
+
+                                var profilePictureDiv = document.getElementById('profilepicturediv');
+                                if (profilePictureDiv.firstElementChild) {
+                                    profilePictureDiv.removeChild(profilePictureDiv.firstElementChild);
+                                }
+                                var img = document.createElement('img');
+                                img.src = profile.pictureUrl;
+                                img.alt = "Profile Picture";
+                                img.width = 200;
+                                profilePictureDiv.appendChild(img);
+
+                                document.getElementById('statusmessagefield').textContent = profile.statusMessage;
+                            }).catch(function (error) {
+                                window.alert("Error getting profile: " + error);
+                            });
                     
-			
-// 			document.getElementById('windowopen').addEventListener('click', () => {
-// //                              liff.subWindow.open({url: "https://liff.line-beta.me/1651833066-Bk0XW1Ng/beta" })
-// 			     window.open("https://www.w3schools.com", "_blank")
-// 			     })
-//                         });
-			
-                   
-                    
-//                         document.getElementById('qrcode').addEventListener('click', () => {
-//                             if (liff.scanCode) {
-//                                 liff.scanCode().then(result => {
-//                                     result = { value: '' }
-//                                 });
-//                             }
-//                         });
-                    
-			
-// 			document.getElementById('message').addEventListener('click', () => {
-// 				var height=document.getElementById("height").value;
-				
-// 				liff.sendMessages([
-// 					{
-// 						type: 'text',
-// 						text: 'your height is ' + height
-// 					}
-// 				])
-// 					.then(() => {
-// 					console.log('message sent');
-// 				})
-// 					.catch((err) => {
-// 					console.log('error', err);
-// 				});
-// 			});
 
                    
+				// Check if shareTargetPicker is available
+                        document.getElementById('add_to_home').addEventListener('click', () => {				
+				if (liff.isApiAvailable('addToHomeScreen')) {
+				    liff.addToHomeScreen({
+					name: "LINE",
+					iconUrl: "https://obs-beta.line-scdn.net/0hi2dU1wubNh1ZLCCnLGVJSntxPX9qTigWexgyezx-HU0oSQRLLjEmH3RQDVY_TwQ3LjUyJidHHkkyYAMgZiscAyB8DSw8dDc/f256x256",
+					state: "/search?q=foo"
+				    }).then((status) => {
+					// status == -1:  // canceled. If user cancel to add, return -1 (only Android under 8)
+					// status == 0:   // unknown. iOS always return 0
+					// status == 1:   // added. If shortcut created, return 1 (Android above 8 will always be 1)
+				    }).catch(function(res) {
+				      console.log("Failed to launch addToHomeScreen")
+				    })
+				}else {
+				      console.log("isApiAvailable Error")
+				}
+			});
+			
+			
+			
 //                         document.getElementById('add_to_home').addEventListener('click', () => {
 //                             liff.addToHomeScreen({
 //                                 name: "LINE",
-//                                 iconUrl: "https://obs.line-apps.com/icon.png",
+//                                 iconUrl: "https://obs-beta.line-scdn.net/0hi2dU1wubNh1ZLCCnLGVJSntxPX9qTigWexgyezx-HU0oSQRLLjEmH3RQDVY_TwQ3LjUyJidHHkkyYAMgZiscAyB8DSw8dDc/f256x256",
 //                                 state: "/search?q=foo"
-// 			}).then((status) => {
-// 			    // status == -1:  // canceled. If user cancel to add, return -1 (only Android under 8)
-// 			    // status == 0:   // unknown. iOS always return 0
-// 			    // status == 1:   // added. If shortcut created, return 1 (Android above 8 will always be 1)
-// 			}).catch((err: LiffError) => {
-// 			    // Error happens during create shorcut (permission error, etc...)
-// 			    console.log(err.code, err.message);
-// 			});
-				
-				
-				
-// 			document.getElementById('add_to_home').addEventListener('click', () => {				
-// 				if (liff.isApiAvailable('addToHomeScreen')) {
-// 				    liff.addToHomeScreen({
-// 					name: "LINE",
-// 					iconUrl: "https://obs.line-apps.com/icon.png",
-// 					state: "/search?q=foo"
-// 				    }).then((status) => {
-// 					// status == -1:  // canceled. If user cancel to add, return -1 (only Android under 8)
-// 					// status == 0:   // unknown. iOS always return 0
-// 					// status == 1:   // added. If shortcut created, return 1 (Android above 8 will always be 1)
-// 				    }).catch(function(res) {
-// 				      console.log("Failed to launch addToHomeScreen")
-// 				    })
-// 				}else {
-// 				      console.log("isApiAvailable Error")
-// 				}
-// 			});
+//                             }).then((status) => {
+
+//                             })
+//                         });
+			
+			document.getElementById('subwindow').addEventListener('click', () => {
+					liff.subWindow.open({
+						url: 'https://liff.line.me/1655828362-KLxYgqxg/example.html',
+// 						url: 'www.naver.com',
+					})
+
+			});
+			
+			document.getElementById('module_subwindow').addEventListener('click', () => {
+					liff.subWindow.open({
+						url: 'https://liff.line.me/1655821834-xg4aVz10',
+					})
+
+			});
+			
+			
+			document.getElementById('applink').addEventListener('click', () => {
+					liff.openWindow({
+					  url: "https://youtu.be/hm4QpH-vb4s",
+					  external: true,
+					});
+
+			});
+			
+			
+			
+			document.getElementById('iab').addEventListener('click', () => {
+					liff.openWindow({
+					  url: "https://liff-real.herokuapp.com/",
+					  external: false,
+					});
+
+			});
+			
+			document.getElementById('external').addEventListener('click', () => {
+					liff.openWindow({
+					  url: "https://liff.line.me/1655828362-KLxYgqxg",
+					  external: true,
+					});
+
+			});
+
                 })
             });
             
@@ -171,20 +128,38 @@
     </head>
     
     <body>
-                <h3>環境やトークルームの情報を取得333</h3>
-<!--                 <input type="button" id="add_to_home" value="add_to_home"/> -->
-                <input type="button" id="go" value="実行"/>
-<!--                 <input type="button" id="popup" value="popup"/>
-	    	<input type="button" id="subwindow" value="subwindow"/>
-                <input type="button" id="pic" value="pic"/>
-                <input type="button" id="flex" value="flex"/>
-	    <input type="button" id="windowopen" value="windowopen"/>
+    <h3 id="displaynamefield"></h3>
+
+   <div id="profileinfo">
+        <h2>Profile</h2>
+        <div id="profilepicturediv">
+        </div>
+        <table border="1">
+            <tr>
+                <th>userId</th>
+                <td id="useridprofilefield"></td>
+            </tr>
+            <tr>
+                <th>displayName</th>
+                <td id="displaynamefield"></td>
+            </tr>
+            <tr>
+                <th>statusMessage</th>
+                <td id="statusmessagefield"></td>
+            </tr>
+        </table>
+    </div>
+                <input type="button" id="add_to_home" value="add_to_home"/>
+                <input type="button" id="subwindow" value="sub_window"/>
+	    <input type="button" id="module_subwindow" value="module_sub_window"/>
+<!-- 	    <input type="button" id="lifflogout" value="lifflogout"/> -->
                 <input type="button" id="qrcode" value="QRcode"/>
-	    	        <input type="button" id="message" value="message"/>
-                <input type="button" value="リファラ表示" onclick="alert( document.referrer );" />
-                <a href="https://liff.line-beta.me/1651833066-zO3vlq60" target="_blank" style="color:white;">LIFF-to-LIFF</a>
-                <a href="https://android-liff-test.herokuapp.com/index.html" target="_blank">IAB</a> -->
-	        <a href="https://www.facebook.com/">facebook</a>
-               
+                <input type="button" id="iab" value="IAB"/>
+	        <input type="button" id="external" value="External_Browser"/>
+                <a href="https://youtu.be/hm4QpH-vb4s">APP_LINK_TEST_href</a>
+	   	<input type="button" id="applink" value="APP_LINK_TEST_openwindow"/>
+	    	<a href="https://liff.line.me/1655828362-KLxYgqxg/liff/line">liff/line</a>
+	     <a href="https://www.facebook.com/">facebook</a>
+
     </body>
 </html>
