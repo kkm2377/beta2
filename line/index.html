@@ -4,20 +4,14 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
         <title>LIFF-Sample</title>
-<!-- <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script> -->
 	    <script src="https://line-objects-internal.com/assets/liff/edge/2/sdk.js"></script>
-<!-- 	    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.11.1/sdk.js"></script> -->
         <script defer type="text/javascript">
-            /**
-            * Initialize LIFF
-            * @param {string} myLiffId The LIFF app ID of the selected element
-            */
+
             document.addEventListener("DOMContentLoaded", () => {
                 liff
                     .init({
-//                         liffId: "1655828362-KLxYgqxg",
-			liffId: "1651833033-8nbRDmBd",
-                        withLoginOnExternalBrowser: true, // Enable automatic login process
+			liffId: "1651833066-zO3vlq60",
+                        withLoginOnExternalBrowser: true, 
                     })
                     .then(() => {
 			
@@ -50,7 +44,6 @@
                     
 
                    
-				// Check if shareTargetPicker is available
                         document.getElementById('add_to_home').addEventListener('click', () => {				
 				if (liff.isApiAvailable('addToHomeScreen')) {
 				    liff.addToHomeScreen({
@@ -58,9 +51,7 @@
 					iconUrl: "https://obs-beta.line-scdn.net/0hi2dU1wubNh1ZLCCnLGVJSntxPX9qTigWexgyezx-HU0oSQRLLjEmH3RQDVY_TwQ3LjUyJidHHkkyYAMgZiscAyB8DSw8dDc/f256x256",
 					state: "/search?q=foo"
 				    }).then((status) => {
-					// status == -1:  // canceled. If user cancel to add, return -1 (only Android under 8)
-					// status == 0:   // unknown. iOS always return 0
-					// status == 1:   // added. If shortcut created, return 1 (Android above 8 will always be 1)
+
 				    }).catch(function(res) {
 				      console.log("Failed to launch addToHomeScreen")
 				    })
@@ -70,21 +61,11 @@
 			});
 			
 			
-			
-//                         document.getElementById('add_to_home').addEventListener('click', () => {
-//                             liff.addToHomeScreen({
-//                                 name: "LINE",
-//                                 iconUrl: "https://obs-beta.line-scdn.net/0hi2dU1wubNh1ZLCCnLGVJSntxPX9qTigWexgyezx-HU0oSQRLLjEmH3RQDVY_TwQ3LjUyJidHHkkyYAMgZiscAyB8DSw8dDc/f256x256",
-//                                 state: "/search?q=foo"
-//                             }).then((status) => {
 
-//                             })
-//                         });
 			
 			document.getElementById('subwindow').addEventListener('click', () => {
 					liff.subWindow.open({
 						url: 'https://liff.line-beta.me/1651833033-3qqQE5V7',
-// 						url: 'www.naver.com',
 					})
 
 			});
@@ -105,12 +86,6 @@
 
 			});
 			
-// 			document.getElementById('qrcode').addEventListener('click', () => {
-// 					liff.scanCodeV2().then((result) => {
-// 					   result = { value: "" }
-// 					});
-// 				alert("TQ");
-//                         });
 			
 			document.getElementById('external').addEventListener('click', () => {
 					liff.openWindow({
