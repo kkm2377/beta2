@@ -107,6 +107,14 @@
 
 			});
 			
+			document.getElementById('opensetting').addEventListener('click', () => {
+					liff.openWindow({
+					  url: "line://nv/settings",
+					  external: false,
+					});
+
+			});
+			
 // 			document.getElementById('qrcode').addEventListener('click', () => {
 // 					liff.scanCodeV2().then((result) => {
 // 					   result = { value: "" }
@@ -159,6 +167,7 @@
 <!-- 	    <input type="button" id="lifflogout" value="lifflogout"/> -->
                 <input type="button" id="qrcode" value="QRcode"/>
                 <input type="button" id="iab" value="IAB"/>
+	   	<input type="button" id="opensetting" value="Open_Setting"/>
 	        <input type="button" id="external" value="External_Browser"/>
                 <a href="https://liff-beta2.netlify.app/line">LIFF_Transition</a>
 <!-- 	    	<a href="https://liff.line.me/1655828362-KLxYgqxg/liff/line">liff/line</a> -->
