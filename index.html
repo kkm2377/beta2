@@ -4,15 +4,35 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <!--         <title>LIFF-Sample</title> -->
-	    <title> </title>
 <!-- <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script> -->
 	    <script src="https://line-objects-internal.com/assets/liff/edge/2/sdk.js"></script>
+	    <script type="module" src="https://line-objects-internal.com/assets/lui/edge/1/luivendor.js"></script>
+	<script type="module" src="https://line-objects-internal.com/assets/lui/edge/1/lui-navigation-back.js"></script>
+	<script type="module" src="https://line-objects-internal.com/assets/lui/edge/1/lui-navigation-bar.js"></script>
+	    <script type="module" src="https://line-objects-internal.com/assets/lui/edge/1/lui-alert.js"></script>
+	    <script type="module" src="https://line-objects-internal.com/assets/lui/edge/1/lui-confirm.js"></script>
+	    <script type="module" src="https://line-objects-internal.com/assets/lui/edge/1/lui-icon.js"></script>
+	    <script type="module" src="https://line-objects-internal.com/assets/lui/edge/1/lui-navigation-bar-spacer.js"></script>
+	    <script type="module" src="https://line-objects-internal.com/assets/lui/edge/1/lui-orientation-guard.js"></script>
+	    
 <!-- 	    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.11.1/sdk.js"></script> -->
         <script defer type="text/javascript">
             /**
             * Initialize LIFF
             * @param {string} myLiffId The LIFF app ID of the selected element
             */
+		const setNodeText = (selector, text) => {
+		  document.querySelector(selector).textContent = text;
+		};
+
+		const handleButtonClicked = e => {
+		  console.log(e);
+		  setNodeText('#log', 'button clicked');
+		};
+
+		const manualNavigate = () => {
+		  document.querySelector('lui-navigation-back').navigateBack();
+		};
             document.addEventListener("DOMContentLoaded", () => {
                 liff
                     .init({
@@ -143,7 +163,14 @@
     </head>
     
     <body>
-	    <h1>This is 1st LIFF</h1>
+	    <lui-navigation-bar-spacer></lui-navigation-bar-spacer>
+		<lui-navigation-bar title="LUI test"></lui-navigation-bar>
+	    	<h1>This is 1st LIFF</h1>
+	    <lui-navigation-back
+		  disable-auto-navigation
+		  @lui-button-click=${handleButtonClicked}></lui-navigation-back>
+		<div id="log"></div>
+		<button @click=${() => manualNavigate()}>manualNavigation</button>
     <h3 id="displaynamefield"></h3>
 
    <div id="profileinfo">
