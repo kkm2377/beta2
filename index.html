@@ -6,21 +6,21 @@
 <!--         <title>LIFF-Sample</title> -->
 <!-- <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script> -->
 	    <script src="https://line-objects-internal.com/assets/liff/edge/2/sdk.js"></script>
+	    
+	    <style>
+	      .container.is-universal {
+	    /* iOS 11.0-11.2 */
+	    	padding-top: calc(var(--android-safe-area-inset-top, 0px) + constant(safe-area-inset-top));
+	  	}
+	  /* iOS 11.2+ */
+		  @supports (padding-top: env(safe-area-inset-top)) {
+		    .container.is-universal {
+		      padding-top: calc(var(--android-safe-area-inset-top, 0px) + env(safe-area-inset-top));
+		    }
+	  	}
+	    </style>
+	    
         <script defer type="text/javascript">\
-	<style>
-		// iOS 11.0 버전
-		constant(safe-area-inset-top)
-		constant(safe-area-inset-right)
-		constant(safe-area-inset-bottom)
-		constant(safe-area-inset-left)
-		// iOS 11.2 이상
-		env(safe-area-inset-top)
-		env(safe-area-inset-right)
-		env(safe-area-inset-bottom)
-		env(safe-area-inset-left)
-		
-		nav{right:0; right:constant(safe-area-inset-right); right:env(safe-area-inset-right);}
-	</style>
             /**
             * Initialize LIFF
             * @param {string} myLiffId The LIFF app ID of the selected element
